@@ -44,8 +44,8 @@ leaks: re clear
 track: re clear 
 	valgrind -s --track-origins=yes ./push_swap 3 2 1 0
 
-t: re clear
-	cp push_swap ../testerpushswap
-	bash ../testerpushswap/push_swap_test_linux.sh 1 1
+t: all
+	@cp push_swap ../testerpushswap
+	@cd ../testerpushswap; bash push_swap_test_linux.sh 1 1
 
 re: fclean all

@@ -21,6 +21,7 @@
 
 void	see_errors(int argc, char **argv);
 void	get_ideal(t_node **stack_a, t_variable *variable);
+void	check_int_min(t_node **stack_a);
 int		ft_order(t_node **stack_a, t_node **stack_b, t_variable *variable);
 void	count_movs(t_node **stack_a, t_variable *variable, int search);
 int		check_order_a(t_node **stack_a);

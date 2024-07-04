@@ -12,6 +12,30 @@
 
 #include "push_swap.h"
 
+void	check_int_min(t_node **stack_a)
+{
+	t_node	*aux_a;
+	int		flag;
+
+	flag = 0;
+	aux_a = *stack_a;
+	while (aux_a)
+	{
+		if (aux_a->value == INT_MIN)
+			flag = 1;	
+		aux_a = aux_a->next;
+	}
+	if (flag)
+	{
+		aux_a = *stack_a;
+		while (aux_a)
+		{
+			aux_a->ideal += 1;
+			aux_a = aux_a->next;
+		}
+	}
+}
+
 int	check_order_a(t_node **stack_a)
 {
 	t_node	*aux;
@@ -70,7 +94,6 @@ void	istwo(t_node **stack_a, int three)
 		exit(0);
 	}
 }
-
 /*
 void	print_stacks(t_node *stack_a, t_node *stack_b)
 {
@@ -83,13 +106,13 @@ void	print_stacks(t_node *stack_a, t_node *stack_b)
 	{
 		if (stack_a)
 		{
-			printf("%d", stack_a->value);
+			printf("%d->%d", stack_a->ideal, stack_a->value);
 			stack_a = stack_a->next;
 		}
 		printf("		");
 		if (stack_b != NULL)
 		{
-			printf("%d", stack_b->value);
+			printf("%d->%d", stack_b->ideal, stack_b->value);
 			stack_b = stack_b->next;
 		}
 		printf("\n");

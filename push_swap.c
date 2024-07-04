@@ -108,6 +108,7 @@ int	main(int argc, char **argv)
 	variable.max = INT_MIN;
 	variable.ideal = 1;
 	get_ideal(&stack_a, &variable);
+	check_int_min(&stack_a);
 	if (check_order_a(&stack_a) == 0)
 		return (last_free(&stack_a), 0);
 	three = size_stack(&stack_a);
